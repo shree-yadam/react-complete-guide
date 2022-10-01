@@ -5,7 +5,7 @@ function ExpenseItem(props) {
 
   return (
     <div className="expense-item">
-      <div>{date.toLocaleDateString()}</div>
+      <div>{date && date.toLocaleDateString()}</div>
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">{amount}</div>
