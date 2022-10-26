@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Expenses(props) {
 
-  const [filterYear, setFilterYear] = useState();
+  const [filterYear, setFilterYear] = useState('2022');
   const { expenses } = props;
 
   function filterYearChangeHandler(year) {
@@ -15,7 +15,7 @@ function Expenses(props) {
 
   return (
     <div>
-      <ExpensesFilter onFilterYear={filterYearChangeHandler}/>
+      <ExpensesFilter filterYear={filterYear} onFilterYear={filterYearChangeHandler}/>
       <div className="expenses">
         {expenses.map((e) => (
           <ExpenseItem
