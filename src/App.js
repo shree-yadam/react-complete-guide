@@ -26,10 +26,8 @@ function App() {
   ]);
 
   function addExpenseHandler(expense) {
-    console.log("In App.js");
-    console.log(expense);
     setExpenses(prev => {
-      return [...prev, expense];
+      return [expense, ...prev];
     })
   }
 

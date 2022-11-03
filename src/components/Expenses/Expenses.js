@@ -23,7 +23,7 @@ function Expenses(props) {
         {expenses.map((e) => (
           <ExpenseItem
             title={e.title}
-            amount={e.amount}
+            amount={(Math.round(e.amount * 100)/ 100).toFixed(2)}
             date={e.date}
             key={e.id}
           />
