@@ -10,7 +10,6 @@ function Expenses(props) {
 
   function filterYearChangeHandler(year) {
     setFilterYear(year);
-    console.log(`Setting year in Expenses ${year}`);
   }
 
   return (
@@ -20,14 +19,16 @@ function Expenses(props) {
           filterYear={filterYear}
           onFilterYear={filterYearChangeHandler}
         />
-        {expenses.map((e) => (
-          <ExpenseItem
-            title={e.title}
-            amount={(Math.round(e.amount * 100)/ 100).toFixed(2)}
-            date={e.date}
-            key={e.id}
-          />
-        ))}
+        {expenses
+          .filter((e) => e.date.getFullYear().toString() === filterYear)
+          .map((e) => (
+            <ExpenseItem
+              title={e.title}
+              amount={(Math.round(e.amount * 100) / 100).toFixed(2)}
+              date={e.date}
+              key={e.id}
+            />
+          ))}
       </Card>
     </div>
   );
