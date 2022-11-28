@@ -23,7 +23,6 @@ function ExpenseForm(props) {
     event.preventDefault();
     props.onSaveExpense(userInput);
     setUserInput({ enteredTitle: "", enteredAmount: "", enteredDate: "" });
-
   }
 
   return (
@@ -60,6 +59,7 @@ function ExpenseForm(props) {
       </div>
       <div className="new-expense__actions">
         <button type="submit">Add Expense</button>
+        <button type="button" onClick={props.onCancel}>Cancel</button>
       </div>
     </form>
   );
